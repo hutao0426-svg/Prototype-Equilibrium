@@ -80,7 +80,7 @@ const clock = new THREE.Clock();
 
 const loadAvatarModel = async () => {
   const avatar = await loadGLTF(
-    "../fyp/assets/models/depressionmoving.glb"
+    "../assets/depressionmoving.glb"
   );
 
   avatar.scene.scale.set(0.4, 0.4, 0.4);
@@ -110,7 +110,7 @@ const loadAvatarModel = async () => {
 
 const loadCustomScene = async () => {
   const environment = await loadGLTF(
-    "../fyp/assets/scenes/bedroomwibu.glb"
+    "../assets/bedroomwibu.glb"
   );
 
   const testScale = 0.2;
