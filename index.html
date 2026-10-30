@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUILIBRIUM - Main Menu</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Separate Stylesheet -->
+    <link rel="stylesheet" href="index-style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Equilibrium</h1>
+        <p>Web AR Application for Mental Health Awareness</p>
+    </header>
+
+    <!-- Overview Section: Mental Health & Its Importance -->
+    <section class="intro-section">
+        <div class="intro-card">
+            <h2>What is Mental Health?</h2>
+            <p>
+                Mental health encompasses our emotional, psychological, and social well-being. It shapes how we think, feel, and act in our daily lives, influencing how we manage stress, build relationships, and make decisions across every stage of life.
+            </p>
+        </div>
+
+        <div class="intro-card">
+            <h2>Why It Matters</h2>
+            <p>
+                Prioritizing mental health fosters resilience, empathy, and personal balance. Understanding emotional challenges reduces social stigma, encouraging individuals to seek support early and create safer environments for growth and recovery.
+            </p>
+        </div>
+    </section>
+
+    <!-- SDG Alignment Section -->
+    <section class="sdg-section">
+        <div class="sdg-header">
+            <h2>Alignment with Sustainable Development Goals</h2>
+            <p>Equilibrium directly supports the United Nations SDGs for global well-being and education.</p>
+        </div>
+
+        <div class="sdg-grid">
+            <div class="sdg-card">
+                <span class="sdg-badge badge-sdg3">SDG 3</span>
+                <h3>Good Health & Well-being</h3>
+                <p>
+                    Promoting mental health wellness and reducing social stigma by offering interactive Web AR visualization of emotional conditions.
+                </p>
+            </div>
+
+            <div class="sdg-card">
+                <span class="sdg-badge badge-sdg4">SDG 4</span>
+                <h3>Quality Education</h3>
+                <p>
+                    Providing innovative, accessible, technology-driven educational resources to increase public mental health literacy.
+                </p>
+            </div>
+
+            <div class="sdg-card">
+                <span class="sdg-badge badge-sdg10">SDG 10</span>
+                <h3>Reduced Inequalities</h3>
+                <p>
+                    Ensuring open web access to mental health awareness tools regardless of geographical location or economic background.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title">Explore Mental Health Conditions</h2>
+
+    <!-- Main Selection UI Matrix -->
+    <main class="menu-grid">
+
+        <div class="menu-card card-dep" onclick="selectCondition('depression')">
+            <div>
+                <h2>Depression</h2>
+                <p>
+                    Explore the emotional experiences,
+                    thought patterns, and challenges
+                    commonly associated with depression.
+                </p>
+            </div>
+            <button class="launch-btn">Click To Explore</button>
+        </div>
+
+        <div class="menu-card card-anx" onclick="selectCondition('anxiety')">
+            <div>
+                <h2>Anxiety</h2>
+                <p>
+                    Understand excessive worry,
+                    nervousness, and uncertainty
+                    through interactive visualization.
+                </p>
+            </div>
+            <button class="launch-btn">Click To Explore</button>
+        </div>
+
+        <div class="menu-card card-str" onclick="selectCondition('stress')">
+            <div>
+                <h2>Stress</h2>
+                <p>
+                    Learn how pressure and demands
+                    can affect emotional and mental
+                    well-being.
+                </p>
+            </div>
+            <button class="launch-btn">Click To Explore</button>
+        </div>
+
+        <div class="menu-card card-brn" onclick="selectCondition('burnout')">
+            <div>
+                <h2>Burnout</h2>
+                <p>
+                    Discover the effects of prolonged
+                    exhaustion and emotional fatigue
+                    caused by chronic stress.
+                </p>
+            </div>
+            <button class="launch-btn">Click To Explore</button>
+        </div>
+
+    </main>
+
+    <!-- Project Attribution Footer -->
+    <footer>
+        <strong>EQUILIBRIUM • Final Year Project Prototype</strong><br>
+        Mohamad Aiman Bin Azrie (BI23110399) • Supervisor: Miss Annecia Yoag<br>
+        Faculty of Computing and Informatics • Universiti Malaysia Sabah, Labuan International Campus 2026
+    </footer>
+
+    <script>
+        function selectCondition(condition){
+            switch(condition){
+                case "depression":
+                    window.location.href = "depression.html";
+                    break;
+
+                case "anxiety":
+                    window.location.href = "anxiety-info.html";
+                    break;
+
+                case "stress":
+                    window.location.href = "stress-info.html";
+                    break;
+
+                case "burnout":
+                    alert("Burnout module is currently under development.");
+                    break;
+            }
+        }
+    </script>
+
+</body>
+</html>

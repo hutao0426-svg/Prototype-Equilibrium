@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EQUILIBRIUM - Depression AR Demonstration</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Centered Modal Overlay for Introduction */
+        #introModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+        #introModal.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .intro-card {
+            background: rgba(30, 41, 59, 0.95);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            width: 85%;
+            max-width: 380px;
+            text-align: left;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        .intro-card h2 {
+            color: #38bdf8;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .intro-card p, .intro-card li {
+            color: #94a3b8;
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+        .intro-card ul {
+            padding-left: 18px;
+            margin: 8px 0;
+        }
+        .dismiss-btn {
+            width: 100%;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: bold;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+        .dismiss-btn:hover {
+            background: #7dd3fc;
+        }
+
+        /* Impact Panel Styling */
+        #impactBox {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 10px;
+            text-align: left;
+        }
+        #impactBox h4 {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+        #impactBox p {
+            color: #e2e8f0;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+    </style>
+    <!-- MindAR and Three.js libraries -->
+<!-- REMOVE THIS: <script src="./libs/mindar/mindar-image-three.prod.js"></script> -->
+
+<!-- REPLACE WITH standard Three.js and WebXR button support -->
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
+<script type="module" src="Depression.js"></script>
+    <script type="module" src="Depression.js"></script>
+</head>
+<body>
+
+    <!-- Centered Modal Introduction Popup -->
+    <div id="introModal">
+        <div class="intro-card">
+            <h2>Depression Awareness</h2>
+            <p>A mental health condition causing persistent sadness, fatigue, and low energy.</p>
+            <ul>
+                <li><strong>Emotional:</strong> Low mood, loss of interest, hopelessness.</li>
+                <li><strong>Physical:</strong> Fatigue, sleep changes, social withdrawal.</li>
+            </ul>
+            <button class="dismiss-btn" onclick="dismissIntro()">Start AR Experience</button>
+        </div>
+    </div>
+
+<div id="ui-panel">
+
+    <!-- Brief Header Title -->
+    <div style="text-align: center; margin-bottom: 8px;">
+        <h2 style="margin: 0; color: #38bdf8; font-size: 1.1rem;">EQUILIBRIUM</h2>
+    </div>
+
+    <!-- Thought Bubble / Prompt Area -->
+    <div id="thoughtBubble">
+        Scan the target marker to begin.
+    </div>
+
+    <!-- Option Selection Buttons -->
+    <div id="choices" style="display:none; flex-direction: column; gap: 6px; margin-top: 8px;">
+        <p style="font-size: 0.75rem; color: #94a3b8; margin: 0 0 4px 0; text-align: center;">Select your response:</p>
+        <button id="supportBtn">Offer Support</button>
+        <button id="healthyBtn">Encourage Healthy Habit</button>
+        <button id="ignoreBtn">Ignore</button>
+    </div>
+
+    <!-- Singular Impact & Return Panel -->
+    <div id="impactPanel" style="display:none;">
+        <div id="impactBox">
+            <h4>Impact Analysis</h4>
+            <p id="impactText"></p>
+            <button id="returnBtn" style="width: 100%; background: #38bdf8; color: #0f172a; font-weight: bold; border: none; padding: 8px; border-radius: 6px; cursor: pointer;">← Choose Another Response</button>
+        </div>
+    </div>
+
+    <!-- Dynamic Action Info Panel -->
+    <div id="infoPanel" style="font-size: 0.75rem; margin-top: 8px; text-align: center;">
+        Point your camera at the target marker.
+    </div>
+
+</div>
+
+<script>
+    function dismissIntro() {
+        const modal = document.getElementById("introModal");
+        if (modal) {
+            modal.classList.add("fade-out");
+        }
+    }
+</script>
+
+</body>
+</html>
